@@ -89,11 +89,17 @@ function Application:handleMouseClick(data)
         return
     end
     
+    -- Find the clicked component
+    local clickedComponent = self:findComponentAt(data.x, data.y)
+    
     -- Try to handle click on components
     local handled = self.root:handleClick(data.x, data.y, data.button)
     
-    -- If not handled and we have a focused component, unfocus it
-    if not handled and self.focusedComponent then
+    -- Update focus if a component was clicked
+    if clickedComponent then
+        self:setFocus(clickedComponent)
+    elseif not handled and self.focusedComponent then
+        -- If not handled and we have a focused component, unfocus it
         self:setFocus(nil)
     end
 end
