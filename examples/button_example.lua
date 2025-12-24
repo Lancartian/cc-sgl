@@ -1,5 +1,5 @@
 --- Simple Button Example
---- Demonstrates basic button usage in SGL
+--- Demonstrates basic button usage in CC-SGL
 
 local sgl = require("sgl")
 
