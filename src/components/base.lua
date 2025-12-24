@@ -19,6 +19,7 @@ function Component:init(x, y, width, height)
     self.visible = true
     self.enabled = true
     self.focused = false
+    self.focusable = false
     self.children = {}
     self.parent = nil
     self.eventHandlers = {}

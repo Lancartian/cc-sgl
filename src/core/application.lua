@@ -95,8 +95,8 @@ function Application:handleMouseClick(data)
     -- Try to handle click on components
     local handled = self.root:handleClick(data.x, data.y, data.button)
     
-    -- Update focus if a component was clicked
-    if clickedComponent then
+    -- Update focus if a focusable component was clicked
+    if clickedComponent and clickedComponent.focusable then
         self:setFocus(clickedComponent)
     elseif not handled and self.focusedComponent then
         -- If not handled and we have a focused component, unfocus it

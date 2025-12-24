@@ -13,6 +13,7 @@ local Input = utils.class(Component)
 function Input:init(x, y, width, placeholder)
     Component.init(self, x, y, width, 1)
     
+    self.focusable = true
     self.text = ""
     self.placeholder = placeholder or ""
     self.cursorPos = 0
