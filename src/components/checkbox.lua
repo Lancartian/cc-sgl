@@ -29,7 +29,7 @@ function Checkbox:setChecked(checked)
     self:markDirty()
     
     if self.onChanged then
-        self:onChanged(self.checked)
+        self.onChanged(self.checked)
     end
 end
 

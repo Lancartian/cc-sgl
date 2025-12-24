@@ -34,7 +34,7 @@ function Slider:setValue(value)
     self:markDirty()
     
     if self.onChanged then
-        self:onChanged(self.value)
+        self.onChanged(self.value)
     end
 end
 

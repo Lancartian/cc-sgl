@@ -31,7 +31,7 @@ function Radio:setSelected(selected)
     self:markDirty()
     
     if self.onChanged then
-        self:onChanged(self.selected)
+        self.onChanged(self.selected)
     end
 end
 
