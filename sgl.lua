@@ -1,10 +1,10 @@
---- SGL (Simple Graphics Library)
+--- CC-SGL (ComputerCraft Simple Graphics Library)
 --- A comprehensive GUI library for ComputerCraft
 --- @module sgl
 local sgl = {
     _VERSION = "1.0.0",
     _DESCRIPTION = "Simple Graphics Library for ComputerCraft",
-    _AUTHOR = "SGL Team"
+    _AUTHOR = "CC-SGL Team"
 }
 
 -- Core modules
