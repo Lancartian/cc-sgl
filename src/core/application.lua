@@ -125,6 +125,40 @@ function Application:handleScroll(data)
     end
 end
 
+--- Handle mouse drag event
+--- @param data table Event data
+function Application:handleMouseDrag(data)
+    if self.root then
+        -- Notify all components that might be dragging
+        local function notifyDrag(component)
+            if component.dragging and component.handleDrag then
+                component:handleDrag(data.x, data.y)
+            end
+            for _, child in ipairs(component.children) do
+                notifyDrag(child)
+            end
+        end
+        notifyDrag(self.root)
+    end
+end
+
+--- Handle mouse up event
+--- @param data table Event data
+function Application:handleMouseUp(data)
+    if self.root then
+        -- Notify all components that might need to stop dragging
+        local function notifyRelease(component)
+            if component.handleRelease then
+                component:handleRelease()
+            end
+            for _, child in ipairs(component.children) do
+                notifyRelease(child)
+            end
+        end
+        notifyRelease(self.root)
+    end
+end
+
 --- Find component at a specific position
 --- @param x number X coordinate
 --- @param y number Y coordinate
@@ -180,6 +214,16 @@ function Application:run()
     
     self.eventHandlers.scroll = eventManager.on(eventManager.EVENT.MOUSE_SCROLL, function(data)
         self:handleScroll(data)
+        return false
+    end)
+    
+    self.eventHandlers.drag = eventManager.on(eventManager.EVENT.MOUSE_DRAG, function(data)
+        self:handleMouseDrag(data)
+        return false
+    end)
+    
+    self.eventHandlers.mouseUp = eventManager.on(eventManager.EVENT.MOUSE_UP, function(data)
+        self:handleMouseUp(data)
         return false
     end)
     
