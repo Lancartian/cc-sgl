@@ -1,5 +1,5 @@
 --- Component Showcase
---- Demonstrates all available SGL components
+--- Demonstrates all available CC-SGL components
 
 local sgl = require("sgl")
 
