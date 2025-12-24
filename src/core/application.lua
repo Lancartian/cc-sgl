@@ -98,6 +98,9 @@ function Application:handleMouseClick(data)
     -- Update focus if a focusable component was clicked
     if clickedComponent and clickedComponent.focusable then
         self:setFocus(clickedComponent)
+    elseif clickedComponent and not clickedComponent.focusable and self.focusedComponent then
+        -- If clicked on a non-focusable component, unfocus current
+        self:setFocus(nil)
     elseif not handled and self.focusedComponent then
         -- If not handled and we have a focused component, unfocus it
         self:setFocus(nil)

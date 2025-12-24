@@ -130,9 +130,6 @@ tab4:addChild(slider1)
 
 local sliderLabel = sgl.Label:new(2, 1, "Value: 50", 43)
 sliderLabel:setAlign("center")
-slider1.onChanged = function(value)
-    sliderLabel:setText("Value: " .. math.floor(value))
-end
 tab4:addChild(sliderLabel)
 
 local progress = sgl.ProgressBar:new(2, 4, 43, 1)
