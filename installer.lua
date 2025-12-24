@@ -108,7 +108,7 @@ local function writeFile(path, content)
     return true
 end
 
---- Check if SGL is installed
+--- Check if CC-SGL is installed
 --- @return boolean True if installed
 function installer.isInstalled()
     return fs.exists(installer.INSTALL_PATH .. "sgl.lua")
@@ -205,11 +205,11 @@ function installer.install(customPath)
     end
 end
 
---- Uninstall SGL
+--- Uninstall CC-SGL
 --- @return boolean Success
 function installer.uninstall()
     if not installer.isInstalled() then
-        printWarning("SGL is not installed.")
+        printWarning("CC-SGL is not installed.")
         return false
     end
     
@@ -222,12 +222,12 @@ function installer.uninstall()
         return false
     end
     
-    printInfo("Uninstalling SGL...")
+    printInfo("Uninstalling CC-SGL...")
     
     -- Remove installation directory
     if fs.exists(installer.INSTALL_PATH) then
         fs.delete(installer.INSTALL_PATH)
-        printSuccess("SGL has been uninstalled successfully.")
+        printSuccess("CC-SGL has been uninstalled successfully.")
         return true
     else
         printError("Failed to uninstall SGL.")
@@ -312,8 +312,8 @@ function installer.help()
 end
 
 --- Main installer entry point
-function installer.main(args)
-    args = args or {...}
+function installer.main(...)
+    local args = {...}
     
     if #args == 0 then
         installer.help()
@@ -339,8 +339,9 @@ function installer.main(args)
 end
 
 -- Run if executed directly
-if not ... then
-    installer.main({...})
+local args = {...}
+if #args > 0 or (not shell) then
+    installer.main(...)
 end
 
 return installer
