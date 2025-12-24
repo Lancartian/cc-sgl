@@ -17,12 +17,12 @@ A comprehensive, modular GUI library for ComputerCraft that makes creating beaut
 ### Using the Installer
 
 1. Download the installer:
-```lua
+```
 wget https://raw.githubusercontent.com/Lancartian/cc-sgl/main/installer.lua
 ```
 
 2. Run the installer:
-```lua
+```
 installer install
 ```
 
