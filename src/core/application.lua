@@ -205,21 +205,11 @@ function Application:run()
     
     self.eventHandlers.key = eventManager.on(eventManager.EVENT.KEY, function(data)
         self:handleKey(data)
-        -- Force immediate redraw for key input (backspace, delete, etc)
-        if self.root and self.root.dirty then
-            renderer.clear(colors.black)
-            self.root:draw()
-        end
         return false
     end)
     
     self.eventHandlers.char = eventManager.on(eventManager.EVENT.CHAR, function(data)
         self:handleChar(data)
-        -- Force immediate redraw for text input
-        if self.root and self.root.dirty then
-            renderer.clear(colors.black)
-            self.root:draw()
-        end
         return false
     end)
     

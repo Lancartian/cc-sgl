@@ -26,6 +26,7 @@ function Input:init(x, y, width, placeholder)
     self.style.bgColor = colors.black
     self.style.fgColor = colors.white
     self.style.focusBgColor = colors.gray
+    self.style.focusFgColor = colors.white
     self.style.placeholderColor = colors.lightGray
     self.style.cursorColor = colors.white
 end
