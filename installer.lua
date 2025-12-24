@@ -140,18 +140,18 @@ function installer.getInstalledVersion()
     return "unknown"
 end
 
---- Install SGL
+--- Install CC-SGL
 --- @param customPath string Optional custom installation path
 --- @return boolean Success
 function installer.install(customPath)
     local installPath = customPath or installer.INSTALL_PATH
     
-    printInfo("Installing SGL to " .. installPath)
+    printInfo("Installing CC-SGL to " .. installPath)
     printInfo("This may take a moment...")
     
     -- Check if already installed
     if fs.exists(installPath .. "sgl.lua") then
-        printWarning("SGL appears to be already installed.")
+        printWarning("CC-SGL appears to be already installed.")
         print("Do you want to reinstall? (y/n)")
         local response = read()
         if response:lower() ~= "y" then
@@ -193,7 +193,7 @@ function installer.install(customPath)
         printSuccess("Installation complete!")
         printSuccess(string.format("Successfully installed %d files.", successCount))
         print("")
-        printInfo("To use SGL in your programs, add this line:")
+        printInfo("To use CC-SGL in your programs, add this line:")
         print('  local sgl = require("sgl")')
         print("")
         printInfo("Make sure your shell path includes: " .. installPath)
@@ -213,7 +213,7 @@ function installer.uninstall()
         return false
     end
     
-    printWarning("This will remove SGL from your system.")
+    printWarning("This will remove CC-SGL from your system.")
     print("Are you sure you want to continue? (y/n)")
     local response = read()
     
@@ -230,12 +230,12 @@ function installer.uninstall()
         printSuccess("CC-SGL has been uninstalled successfully.")
         return true
     else
-        printError("Failed to uninstall SGL.")
+        printError("Failed to uninstall CC-SGL.")
         return false
     end
 end
 
---- Update SGL
+--- Update CC-SGL
 --- @return boolean Success
 function installer.update()
     if not installer.isInstalled() then
