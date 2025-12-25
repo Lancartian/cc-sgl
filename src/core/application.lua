@@ -131,12 +131,19 @@ end
 --- Handle mouse scroll event
 --- @param data table Event data
 function Application:handleScroll(data)
-    if self.root then
-        -- Find component at mouse position and send scroll event
-        local component = self:findComponentAt(data.x, data.y)
-        if component and component.handleScroll then
-            component:handleScroll(data.direction)
-        end
+    if not self.root then
+        return
+    end
+    
+    if not data or not data.x or not data.y then
+        print("handleScroll: Invalid data - x=" .. tostring(data and data.x) .. ", y=" .. tostring(data and data.y))
+        return
+    end
+    
+    -- Find component at mouse position and send scroll event
+    local component = self:findComponentAt(data.x, data.y)
+    if component and component.handleScroll then
+        component:handleScroll(data.direction)
     end
 end
 
@@ -186,7 +193,10 @@ end
 --- @param y number Y coordinate
 --- @return Component Component at position or nil
 function Application:findComponentAt(x, y)
-    if not self.root then
+    if not self.root or not x or not y then
+        if not x or not y then
+            print("findComponentAt called with nil: x=" .. tostring(x) .. ", y=" .. tostring(y))
+        end
         return nil
     end
     
