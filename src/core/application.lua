@@ -89,6 +89,11 @@ function Application:handleMouseClick(data)
         return
     end
     
+    if not data or not data.x or not data.y then
+        print("handleMouseClick: Invalid data - x=" .. tostring(data and data.x) .. ", y=" .. tostring(data and data.y))
+        return
+    end
+    
     -- Find the clicked component
     local clickedComponent = self:findComponentAt(data.x, data.y)
     
