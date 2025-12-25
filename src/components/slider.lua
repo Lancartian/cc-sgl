@@ -118,7 +118,7 @@ function Slider:handleClick(x, y, button)
         self:updateFromMouse(x)
         
         if self.onClick then
-            self:onClick(x, y, button)
+            self.onClick(x, y, button)
         end
         
         return true

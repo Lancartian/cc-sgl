@@ -95,7 +95,7 @@ function Button:handleRelease(x, y)
         self:markDirty()
         
         if self:isPointInside(x, y) and self.onRelease then
-            self:onRelease()
+            self.onRelease()
         end
     end
 end

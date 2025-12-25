@@ -81,7 +81,7 @@ function Checkbox:handleClick(x, y, button)
         self:toggle()
         
         if self.onClick then
-            self:onClick(x, y, button)
+            self.onClick(x, y, button)
         end
         
         return true

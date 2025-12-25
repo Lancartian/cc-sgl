@@ -89,7 +89,7 @@ function Radio:handleClick(x, y, button)
         self:setSelected(true)
         
         if self.onClick then
-            self:onClick(x, y, button)
+            self.onClick(x, y, button)
         end
         
         return true

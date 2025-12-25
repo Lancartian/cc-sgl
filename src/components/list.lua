@@ -86,7 +86,7 @@ function List:setSelectedIndex(index)
         self:markDirty()
         
         if self.onSelectionChanged then
-            self:onSelectionChanged(index, self.items[index])
+            self.onSelectionChanged(index, self.items[index])
         end
     end
 end
@@ -176,12 +176,12 @@ function List:handleClick(x, y, button)
             self:setSelectedIndex(clickedIndex)
             
             if self.onItemClick then
-                self:onItemClick(clickedIndex, self.items[clickedIndex])
+                self.onItemClick(clickedIndex, self.items[clickedIndex])
             end
         end
         
         if self.onClick then
-            self:onClick(x, y, button)
+            self.onClick(x, y, button)
         end
         
         return true

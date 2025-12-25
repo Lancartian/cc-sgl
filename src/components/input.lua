@@ -141,7 +141,7 @@ function Input:handleChar(char)
     self:markDirty()
     
     if self.onTextChanged then
-        self:onTextChanged(self.text)
+        self.onTextChanged(self.text)
     end
     
     return true
@@ -251,7 +251,7 @@ function Input:handleClick(x, y, button)
         self:markDirty()
         
         if self.onClick then
-            self:onClick(x, y, button)
+            self.onClick(x, y, button)
         end
         
         return true

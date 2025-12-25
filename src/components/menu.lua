@@ -132,7 +132,7 @@ function Menu:handleClick(x, y, button)
         end
         
         if self.onClick then
-            self:onClick(x, y, button)
+            self.onClick(x, y, button)
         end
         
         return true

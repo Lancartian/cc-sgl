@@ -130,7 +130,7 @@ function Component:setFocus(focused)
     self.focused = focused
     self:markDirty()
     if self.onFocusChanged then
-        self:onFocusChanged(focused)
+        self.onFocusChanged(focused)
     end
 end
 
@@ -302,7 +302,7 @@ function Component:destroy()
     self.eventHandlers = {}
     
     if self.onDestroy then
-        self:onDestroy()
+        self.onDestroy()
     end
 end
 
