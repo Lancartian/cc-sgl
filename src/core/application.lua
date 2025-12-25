@@ -1,7 +1,7 @@
 --- Application class - manages the entire GUI application
-local utils = require("src.core.utils")
-local renderer = require("src.core.renderer")
-local eventManager = require("src.events.eventManager")
+local utils = require("/lib/sgl/src/core/utils")
+local renderer = require("/lib/sgl/src/core/renderer")
+local eventManager = require("/lib/sgl/src/events/eventManager")
 
 local Application = utils.class()
 

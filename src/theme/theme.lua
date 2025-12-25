@@ -1,6 +1,6 @@
 --- Theme system for CC-SGL
 --- Provides customizable color schemes and styles
-local utils = require("src.core.utils")
+local utils = require("/lib/sgl/src/core/utils")
 
 local Theme = {}
 

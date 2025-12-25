@@ -2,7 +2,7 @@
 --- Handles mouse clicks, touches, keyboard input, and custom events
 local eventManager = {}
 
-local utils = require("src.core.utils")
+local utils = require("/lib/sgl/src/core/utils")
 
 -- Event listeners storage
 eventManager.listeners = {}

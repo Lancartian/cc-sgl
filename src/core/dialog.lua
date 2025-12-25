@@ -1,13 +1,13 @@
 --- Dialog helpers for common dialog patterns
-local utils = require("src.core.utils")
-local renderer = require("src.core.renderer")
-local Application = require("src.core.application")
-local Panel = require("src.components.panel")
-local Label = require("src.components.label")
-local Button = require("src.components.button")
-local Input = require("src.components.input")
-local List = require("src.components.list")
-local ProgressBar = require("src.components.progressbar")
+local utils = require("/lib/sgl/src/core/utils")
+local renderer = require("/lib/sgl/src/core/renderer")
+local Application = require("/lib/sgl/src/core/application")
+local Panel = require("/lib/sgl/src/components/panel")
+local Label = require("/lib/sgl/src/components/label")
+local Button = require("/lib/sgl/src/components/button")
+local Input = require("/lib/sgl/src/components/input")
+local List = require("/lib/sgl/src/components/list")
+local ProgressBar = require("/lib/sgl/src/components/progressbar")
 
 local Dialog = {}
 

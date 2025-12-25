@@ -1,7 +1,7 @@
 --- Progress bar component
-local Component = require("src.components.base")
-local renderer = require("src.core.renderer")
-local utils = require("src.core.utils")
+local Component = require("/lib/sgl/src/components/base")
+local renderer = require("/lib/sgl/src/core/renderer")
+local utils = require("/lib/sgl/src/core/utils")
 
 local ProgressBar = utils.class(Component)
 

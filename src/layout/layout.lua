@@ -1,5 +1,5 @@
 --- Layout manager system for automatic component positioning
-local utils = require("src.core.utils")
+local utils = require("/lib/sgl/src/core/utils")
 
 local Layout = {}
 

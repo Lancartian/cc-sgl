@@ -1,7 +1,7 @@
 --- Base component class for all UI elements
 --- Provides common functionality for positioning, sizing, visibility, and event handling
-local utils = require("src.core.utils")
-local renderer = require("src.core.renderer")
+local utils = require("/lib/sgl/src/core/utils")
+local renderer = require("/lib/sgl/src/core/renderer")
 
 local Component = utils.class()
 

@@ -8,33 +8,33 @@ local sgl = {
 }
 
 -- Core modules
-sgl.renderer = require("src.core.renderer")
-sgl.utils = require("src.core.utils")
-sgl.Application = require("src.core.application")
-sgl.Dialog = require("src.core.dialog")
+sgl.renderer = require("/lib/sgl/src/core/renderer")
+sgl.utils = require("/lib/sgl/src/core/utils")
+sgl.Application = require("/lib/sgl/src/core/application")
+sgl.Dialog = require("/lib/sgl/src/core/dialog")
 
 -- Event system
-sgl.eventManager = require("src.events.eventManager")
+sgl.eventManager = require("/lib/sgl/src/events/eventManager")
 sgl.EVENT = sgl.eventManager.EVENT
 
 -- Components
-sgl.Component = require("src.components.base")
-sgl.Label = require("src.components.label")
-sgl.Button = require("src.components.button")
-sgl.Input = require("src.components.input")
-sgl.Panel = require("src.components.panel")
-sgl.Checkbox = require("src.components.checkbox")
-sgl.Radio = require("src.components.radio")
-sgl.Slider = require("src.components.slider")
-sgl.ProgressBar = require("src.components.progressbar")
-sgl.List = require("src.components.list")
-sgl.Menu = require("src.components.menu")
+sgl.Component = require("/lib/sgl/src/components/base")
+sgl.Label = require("/lib/sgl/src/components/label")
+sgl.Button = require("/lib/sgl/src/components/button")
+sgl.Input = require("/lib/sgl/src/components/input")
+sgl.Panel = require("/lib/sgl/src/components/panel")
+sgl.Checkbox = require("/lib/sgl/src/components/checkbox")
+sgl.Radio = require("/lib/sgl/src/components/radio")
+sgl.Slider = require("/lib/sgl/src/components/slider")
+sgl.ProgressBar = require("/lib/sgl/src/components/progressbar")
+sgl.List = require("/lib/sgl/src/components/list")
+sgl.Menu = require("/lib/sgl/src/components/menu")
 
 -- Layout system
-sgl.Layout = require("src.layout.layout")
+sgl.Layout = require("/lib/sgl/src/layout/layout")
 
 -- Theme system
-sgl.Theme = require("src.theme.theme")
+sgl.Theme = require("/lib/sgl/src/theme/theme")
 
 --- Create a new application
 --- @param title string Application title
