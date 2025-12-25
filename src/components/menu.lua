@@ -31,7 +31,7 @@ function Menu:addItem(label, callback, enabled)
     enabled = enabled == nil and true or enabled
     
     table.insert(self.items, {
-        label = label,
+        label = tostring(label or ""),
         callback = callback,
         enabled = enabled,
         separator = false
