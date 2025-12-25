@@ -88,6 +88,12 @@ function Component:isPointInside(x, y)
         return false
     end
     
+    if not x or not y then
+        print("isPointInside called with nil: x=" .. tostring(x) .. ", y=" .. tostring(y))
+        print("Component: " .. tostring(self.text or self.label or "unknown"))
+        return false
+    end
+    
     local absX, absY = self:getAbsolutePosition()
     return renderer.isPointInRect(x, y, absX, absY, self.width, self.height)
 end
@@ -237,6 +243,12 @@ end
 --- @param button number Mouse button
 --- @return boolean True if event was handled
 function Component:handleClick(x, y, button)
+    if not x or not y then
+        print("handleClick called with nil: x=" .. tostring(x) .. ", y=" .. tostring(y))
+        print("Component: " .. tostring(self.text or self.label or "unknown"))
+        return false
+    end
+    
     if not self.visible or not self.enabled then
         return false
     end
