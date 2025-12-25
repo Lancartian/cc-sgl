@@ -251,7 +251,7 @@ function Component:handleClick(x, y, button)
     -- Check if click is on this component
     if self:isPointInside(x, y) then
         if self.onClick then
-            self:onClick(x, y, button)
+            self.onClick(x, y, button)
         end
         return true
     end
