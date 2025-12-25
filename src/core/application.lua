@@ -174,18 +174,26 @@ end
 --- Handle mouse up event
 --- @param data table Event data
 function Application:handleMouseUp(data)
-    if self.root then
-        -- Notify all components that might need to stop dragging
-        local function notifyRelease(component)
-            if component.handleRelease then
-                component:handleRelease()
-            end
-            for _, child in ipairs(component.children) do
-                notifyRelease(child)
-            end
-        end
-        notifyRelease(self.root)
+    if not self.root then
+        return
     end
+    
+    -- Note: Mouse up events need x,y coordinates for button release detection
+    if not data or not data.x or not data.y then
+        print("handleMouseUp: Invalid data - x=" .. tostring(data and data.x) .. ", y=" .. tostring(data and data.y))
+        return
+    end
+    
+    -- Notify all components that might need to stop dragging
+    local function notifyRelease(component)
+        if component.handleRelease then
+            component:handleRelease(data.x, data.y, data.button)
+        end
+        for _, child in ipairs(component.children) do
+            notifyRelease(child)
+        end
+    end
+    notifyRelease(self.root)
 end
 
 --- Find component at a specific position
