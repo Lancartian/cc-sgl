@@ -11,9 +11,9 @@ local Label = utils.class(Component)
 --- @param text string Text to display
 --- @param width number Optional width (auto-sized if not provided)
 function Label:init(x, y, text, width)
-    Component.init(self, x, y, width or #text, 1)
+    self.text = tostring(text or "")
+    Component.init(self, x, y, width or #self.text, 1)
     
-    self.text = text or ""
     self.align = "left" -- "left", "center", "right"
     self.autoSize = width == nil
     self.wrap = false

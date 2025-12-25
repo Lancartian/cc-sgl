@@ -14,7 +14,7 @@ local Button = utils.class(Component)
 function Button:init(x, y, width, height, text)
     Component.init(self, x, y, width, height)
     
-    self.text = text or "Button"
+    self.text = tostring(text or "Button")
     self.align = "center"
     self.pressed = false
     

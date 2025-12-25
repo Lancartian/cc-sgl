@@ -15,7 +15,7 @@ function Input:init(x, y, width, placeholder)
     
     self.focusable = true
     self.text = ""
-    self.placeholder = placeholder or ""
+    self.placeholder = tostring(placeholder or "")
     self.cursorPos = 0
     self.scrollOffset = 0
     self.masked = false -- For password fields
