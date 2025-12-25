@@ -221,8 +221,10 @@ end
 --- @param width number Rectangle width
 --- @param height number Rectangle height
 --- @return boolean True if point is inside rectangle
-function renderer.isPointInRect(px, py, x, y, width, height)
-    return px >= x and px < x + width and py >= y and py < y + height
+function renderer.isPointInRect(px, py, x, y, width, height)    if not px or not py or not x or not y or not width or not height then
+        error(string.format("isPointInRect: nil parameter - px=%s, py=%s, x=%s, y=%s, width=%s, height=%s", 
+            tostring(px), tostring(py), tostring(x), tostring(y), tostring(width), tostring(height)))
+    end    return px >= x and px < x + width and py >= y and py < y + height
 end
 
 --- Clip text to fit within a specific width
