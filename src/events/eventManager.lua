@@ -84,7 +84,9 @@ function eventManager.processEvent(eventType, eventData)
     -- Call global listeners
     for _, callback in pairs(eventManager.globalListeners) do
         local success, result = pcall(callback, eventType, eventData)
-        if success and result then
+        if not success then
+            error("Error in event listener: " .. tostring(result))
+        elseif result then
             handled = true
         end
     end
@@ -93,7 +95,9 @@ function eventManager.processEvent(eventType, eventData)
     if eventManager.listeners[eventType] then
         for _, callback in pairs(eventManager.listeners[eventType]) do
             local success, result = pcall(callback, eventData)
-            if success and result then
+            if not success then
+                error("Error in event listener: " .. tostring(result))
+            elseif result then
                 handled = true
             end
         end
