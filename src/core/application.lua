@@ -143,18 +143,25 @@ end
 --- Handle mouse drag event
 --- @param data table Event data
 function Application:handleMouseDrag(data)
-    if self.root then
-        -- Notify all components that might be dragging
-        local function notifyDrag(component)
-            if component.dragging and component.handleDrag then
-                component:handleDrag(data.x, data.y)
-            end
-            for _, child in ipairs(component.children) do
-                notifyDrag(child)
-            end
-        end
-        notifyDrag(self.root)
+    if not self.root then
+        return
     end
+    
+    if not data or not data.x or not data.y then
+        print("handleMouseDrag: Invalid data - x=" .. tostring(data and data.x) .. ", y=" .. tostring(data and data.y))
+        return
+    end
+    
+    -- Notify all components that might be dragging
+    local function notifyDrag(component)
+        if component.dragging and component.handleDrag then
+            component:handleDrag(data.x, data.y)
+        end
+        for _, child in ipairs(component.children) do
+            notifyDrag(child)
+        end
+    end
+    notifyDrag(self.root)
 end
 
 --- Handle mouse up event
