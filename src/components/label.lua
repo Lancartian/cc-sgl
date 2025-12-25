@@ -29,7 +29,7 @@ end
 --- Set the text
 --- @param text string New text
 function Label:setText(text)
-    self.text = text or ""
+    self.text = tostring(text or "")
     if self.autoSize then
         self.width = #self.text
     end
