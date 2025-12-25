@@ -43,7 +43,7 @@ end
 --- Set custom text
 --- @param text string Custom text to display
 function ProgressBar:setText(text)
-    self.text = text
+    self.text = tostring(text or "")
     self:markDirty()
 end
 

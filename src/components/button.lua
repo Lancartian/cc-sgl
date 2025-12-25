@@ -28,7 +28,7 @@ end
 --- Set button text
 --- @param text string New text
 function Button:setText(text)
-    self.text = text
+    self.text = tostring(text or "")
     self:markDirty()
 end
 

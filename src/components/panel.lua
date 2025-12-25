@@ -29,7 +29,7 @@ end
 --- Set title
 --- @param title string Panel title
 function Panel:setTitle(title)
-    self.title = title
+    self.title = tostring(title or "")
     self:markDirty()
 end
 

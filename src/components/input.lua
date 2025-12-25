@@ -35,7 +35,7 @@ end
 --- Set the text
 --- @param text string New text
 function Input:setText(text)
-    self.text = text or ""
+    self.text = tostring(text or "")
     self.cursorPos = #self.text
     self:markDirty()
     
