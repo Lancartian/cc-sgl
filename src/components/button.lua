@@ -77,7 +77,7 @@ function Button:handleClick(x, y, button)
         self:markDirty()
         
         if self.onClick then
-            self:onClick(x, y, button)
+            self.onClick(x, y, button)
         end
         
         return true
